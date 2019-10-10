@@ -1,0 +1,17 @@
+.logo {
+    width:auto;
+}
+.pic{
+    width:30px;
+    display:block;
+    margin:auto;
+    border-radius: 30px;
+}
+.friendName{
+    text-align: center;
+    text-decoration-color: black;
+}
+
+.friendWrapper{
+    padding: 5px;
+}
