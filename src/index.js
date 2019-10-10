@@ -1,7 +1,7 @@
 import React from 'react';
 import * as serviceWorker from './serviceWorker';
 import ReactDOM from 'react-dom';
-import store from '../../atelopus/src/Redux/State'
+import store from './Redux/redux-store'
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
@@ -10,14 +10,18 @@ export let treeRerender = (state) => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} store={store} dispatch={store.dispatch.bind(store)}/>
+            <App state={state} dispatch={store.dispatch.bind(store)}/>
         </BrowserRouter>,
 
         document.getElementById('root'));
 };
 
 treeRerender(store.getState());
-store.subscribe(treeRerender);
+
+store.subscribe(()=>{
+    let state = store.getState();
+    treeRerender(state);
+});
 
 
 // If you want your app to work offline and load faster, you can change

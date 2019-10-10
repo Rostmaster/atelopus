@@ -1,36 +1,31 @@
 import React from 'react';
-
 import style from './Dialogs.module.css';
 import Contact from './Contact/Contact';
 import Message from './Message/Message';
-import {updateNewMessageTextActionCreator,sendMessageActionCreator} from "../../Redux/dialogs-reducer";
+import {updateNewMessageTextActionCreator, sendMessageActionCreator} from "../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogPage;
 
-    let contactElements = state.CONTACTS.map(data => {
+    let contactElements = props.dialogPage.CONTACTS.map(data => {
         return <Contact name={data.name} id={data.id} img={data.img}/>
     });
 
-    let messageElements = state.MESSAGES.map(data => {
+    let messageElements = props.dialogPage.MESSAGES.map(data => {
         return <Message isMine={data.isMine} text={data.message}/>
     });
 
     let sendMessage = () => {
-        props.store.dispatch(sendMessageActionCreator())
+        props.dispatch(sendMessageActionCreator());
     };
 
     let onMessageChange = (event) => {
 
         let text = event.target.value;
         let isMine = false;
-        let MESSAGE = { TEXT:text, STATUS:isMine};
-        props.store.dispatch(updateNewMessageTextActionCreator(MESSAGE))
-
-
+        let MESSAGE = {TEXT: text, STATUS: isMine};
+        props.dispatch(updateNewMessageTextActionCreator(MESSAGE));
     };
-
     return (
         <div className={style.dialogs}>
 
@@ -43,13 +38,15 @@ const Dialogs = (props) => {
                 <div className={style.textArea}>
 
                     <textarea onChange={onMessageChange}
-                              value={state.newMessageText.text}
-                              placeholder={state.newMessagePlaceholder}>
+                              value={props.dialogPage.newMessageText.message}
+                              placeholder={props.dialogPage.newMessagePlaceholder}
+                              autoFocus={true}>
                     </textarea>
-                    <button onClick={sendMessage} >{state.sendBtnText}</button>
+                    <button onClick={sendMessage}>{props.dialogPage.sendBtnText}</button>
                 </div>
             </div>
 
         </div>);
 };
+
 export default Dialogs

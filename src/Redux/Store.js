@@ -21,7 +21,6 @@ let store = {
 
             addPostBtnText: 'Add'
         },
-
         dialogPage: {
 
             CONTACTS: [
@@ -72,7 +71,6 @@ let store = {
 
             newMessagePlaceholder: 'Enter your message'
         },
-
         sideBar: {
             CONTACTS: [
                 {
@@ -113,9 +111,7 @@ let store = {
                 friends: 'Friends'
             }
 
-        },
-
-
+        }
     },
     _callSubscriber() {
         console.log("State changed")
