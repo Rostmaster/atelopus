@@ -2,21 +2,20 @@ import React from 'react';
 import style from './Dialogs.module.css';
 import Contact from './Contact/Contact';
 import Message from './Message/Message';
-import {updateNewMessageTextActionCreator, sendMessageActionCreator} from "../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
 
 
-    let contactElements = props.dialogPage.CONTACTS.map(data => {
+    let contactElements = props.CONTACTS.map(data => {
         return <Contact name={data.name} id={data.id} img={data.img}/>
     });
 
-    let messageElements = props.dialogPage.MESSAGES.map(data => {
+    let messageElements = props.MESSAGES.map(data => {
         return <Message isMine={data.isMine} text={data.message}/>
     });
 
     let sendMessage = () => {
-        props.dispatch(sendMessageActionCreator());
+        props.sendMessage();
     };
 
     let onMessageChange = (event) => {
@@ -24,7 +23,8 @@ const Dialogs = (props) => {
         let text = event.target.value;
         let isMine = false;
         let MESSAGE = {TEXT: text, STATUS: isMine};
-        props.dispatch(updateNewMessageTextActionCreator(MESSAGE));
+
+        props.onMessaageChange(MESSAGE);
     };
     return (
         <div className={style.dialogs}>
@@ -38,11 +38,11 @@ const Dialogs = (props) => {
                 <div className={style.textArea}>
 
                     <textarea onChange={onMessageChange}
-                              value={props.dialogPage.newMessageText.message}
-                              placeholder={props.dialogPage.newMessagePlaceholder}
+                              value={props.newMessageText.message}
+                              placeholder={props.newMessagePlaceholder}
                               autoFocus={true}>
                     </textarea>
-                    <button onClick={sendMessage}>{props.dialogPage.sendBtnText}</button>
+                    <button onClick={sendMessage}>{props.sendBtnText}</button>
                 </div>
             </div>
 
