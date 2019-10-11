@@ -6,11 +6,11 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
 
 
-    let contactElements = props.CONTACTS.map(data => {
+    let contactElements = props.dialogPage.CONTACTS.map(data => {
         return <Contact name={data.name} id={data.id} img={data.img}/>
     });
 
-    let messageElements = props.MESSAGES.map(data => {
+    let messageElements = props.dialogPage.MESSAGES.map(data => {
         return <Message isMine={data.isMine} text={data.message}/>
     });
 
@@ -38,11 +38,11 @@ const Dialogs = (props) => {
                 <div className={style.textArea}>
 
                     <textarea onChange={onMessageChange}
-                              value={props.newMessageText.message}
-                              placeholder={props.newMessagePlaceholder}
+                              value={props.dialogPage.newMessageText.message}
+                              placeholder={props.dialogPage.newMessagePlaceholder}
                               autoFocus={true}>
                     </textarea>
-                    <button onClick={sendMessage}>{props.sendBtnText}</button>
+                    <button onClick={sendMessage}>{props.dialogPage.sendBtnText}</button>
                 </div>
             </div>
 

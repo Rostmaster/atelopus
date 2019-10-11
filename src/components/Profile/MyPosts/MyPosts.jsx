@@ -21,7 +21,7 @@ const MyPosts = (props) => {
     };
 
 
-    let postElements = props.POSTS.map(post => {
+    let postElements = props.profilePage.POSTS.map(post => {
         return <Post message={post.text} likesCount={post.likesCount}/>
     });
 
@@ -31,12 +31,12 @@ const MyPosts = (props) => {
         <div className={style.title}> My posts</div>
 
         <div>
-            <textarea onChange={inputChange}  value={props.currentPostText}/>
+            <textarea onChange={inputChange}  value={props.profilePage.currentPostText}/>
 
         </div>
 
         <div>
-            <button onClick={addPost}> {props.addPostBtnText}</button>
+            <button onClick={addPost}> {props.profilePage.addPostBtnText}</button>
         </div>
 
 

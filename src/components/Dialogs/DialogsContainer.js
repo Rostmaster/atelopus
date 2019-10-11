@@ -15,13 +15,9 @@ const DialogsContainer = (props) => {
         props.store.dispatch(action);
     };
     return (
-        <Dialogs CONTACTS={props.store.getState().dialogPage.CONTACTS}
-                 MESSAGES={props.store.getState().dialogPage.MESSAGES}
-                 newMessageText={props.store.getState().dialogPage.newMessageText}
-                 newMessagePlaceholder={props.store.getState().dialogPage.newMessagePlaceholder}
-                 sendBtnText={props.store.getState().dialogPage.sendBtnText}
+        <Dialogs sendMessage={sendMessage}
                  onMessaageChange={updateMessage}
-                 sendMessage={sendMessage}
+                 dialogPage={props.store.getState().dialogPage}
         />);
 };
 

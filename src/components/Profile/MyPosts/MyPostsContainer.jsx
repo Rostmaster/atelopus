@@ -21,9 +21,8 @@ const MyPostsContainer = (props) => {
 
     return (<MyPosts addPost={addPost}
                      updateNewPostText={updateNewPostText}
-                     POSTS={props.store.getState().profilePage.POSTS}
-                     currentPostText={props.store.getState().profilePage.currentPostText}
-                     addPostBtnText={props.store.getState().profilePage.addPostBtnText}
+                     profilePage={props.store.getState().profilePage}
+
     />);
 
 
