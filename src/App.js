@@ -2,12 +2,12 @@ import './App.css';
 import React from 'react';
 import {Route} from 'react-router-dom'
 import Header from './components/Header/Header';
-import Navigation from './components/Sidebar/Sidebar';
 import Profile from './components/Profile/Profile';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import News from './components/News/News';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import SidebarContainer from "./components/Sidebar/SidebarContainer";
 
 
 const App = (props) => {
@@ -16,7 +16,7 @@ const App = (props) => {
         <div className='app-wrapper'>
 
             <Header/>
-            <Navigation sideBar={props.state.sideBar}/>
+            <SidebarContainer store={props.store}/>
 
             <div className='app-wrapper-content'>
 
