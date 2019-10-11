@@ -9,28 +9,21 @@ import News from './components/News/News';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 
-
-const App = (props) => {
+const App = () => {
 
     return (
         <div className='app-wrapper'>
 
             <Header/>
-            <SidebarContainer store={props.store}/>
+            <SidebarContainer/>
 
             <div className='app-wrapper-content'>
 
-                <Route path='/dialogs' render={() =>
-                    <DialogsContainer store={props.store}/>
-                }/>
-
-                <Route path='/profile' render={() =>
-                    <Profile store={props.store}/>}
-                />
-
-                <Route path='/music' component={Music}/>
-                <Route path='/settings' component={Settings}/>
-                <Route path='/news' component={News}/>
+                <Route path='/dialogs'  render={() =>  <DialogsContainer/> }/>
+                <Route path='/profile'  render={() =>  <Profile/>          }/>
+                <Route path='/music'    render={() =>  <Music/>            }/>
+                <Route path='/settings' render={() =>  <Settings/>         }/>
+                <Route path='/news'     render={() =>  <News/>             }/>
 
             </div>
 
