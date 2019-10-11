@@ -12,12 +12,12 @@ import SidebarContainer from "./components/Sidebar/SidebarContainer";
 const App = () => {
 
     return (
-        <div className='app-wrapper'>
+        <div className='app-wrapper' >
 
             <Header/>
             <SidebarContainer/>
 
-            <div className='app-wrapper-content'>
+            <div className='app-wrapper-content' >
 
                 <Route path='/dialogs'  render={() =>  <DialogsContainer/> }/>
                 <Route path='/profile'  render={() =>  <Profile/>          }/>
