@@ -1,51 +1,31 @@
 import React from 'react';
-import style from './MyPosts.module.css';
-import Post from './Post/Post';
 import {addPostActionCreator,updateNewPostTextActionCreator} from "../../../Redux/profile-reducer";
+import MyPosts from "./MyPosts";
 
 
-const MyPosts = (props) => {
+const MyPostsContainer = (props) => {
 
     let addPost = () => {
 
-        props.dispatch(addPostActionCreator());
-
-
-    };
-
-    let inputChange = (event) => {
-
-        let text = event.target.value;
-        props.dispatch(updateNewPostTextActionCreator(text));
-
+        let action = addPostActionCreator();
+        props.store.dispatch(action);
 
     };
 
+    let updateNewPostText = (text) => {
+        let action = updateNewPostTextActionCreator(text);
+        props.store.dispatch(action);
 
-    let postElements = props.POSTS.map(post => {
-        return <Post message={post.text} likesCount={post.likesCount}/>
-    });
-
-    return (<div className={style.postBlock}>
-
-
-        <div className={style.title}> My posts</div>
-
-        <div>
-            <textarea onChange={inputChange}  value={props.newPostText}/>
-
-        </div>
-
-        <div>
-            <button onClick={addPost}> {props.addPostBtnText}</button>
-        </div>
+    };
 
 
-        <div className={style.posts}>
-            {postElements.reverse()}
-        </div>
-    </div>);
+    return (<MyPosts addPost={addPost}
+                     updateNewPostText={updateNewPostText}
+                     POSTS={props.store.getState().profilePage.POSTS}
+                     currentPostText={props.store.getState().profilePage.currentPostText}
+                     addPostBtnText={props.store.getState().profilePage.addPostBtnText}
+    />);
 
 
 };
-export default MyPosts
+export default MyPostsContainer;

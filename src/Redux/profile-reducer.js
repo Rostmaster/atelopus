@@ -12,9 +12,9 @@ let initialState = {
         {id: 5, likesCount: 9, text: 'Yo'}
     ],         //Post's id, like counter and text
 
-    currentPostText: '',
+    currentPostText: 'New post',
 
-    addPostBtnText: 'Add'
+    addPostBtnText: 'Add Post'
 };
 
 const profileReducer = (state = initialState, action) => {
