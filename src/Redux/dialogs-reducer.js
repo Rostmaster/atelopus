@@ -57,22 +57,29 @@ const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case SEND_MESSAGE:
+        case SEND_MESSAGE: {
+            let stateCopy = {...state};
+            stateCopy.MESSAGES = [...state.MESSAGES];
+            stateCopy.newMessageText = {...state.newMessageText};
 
             let newMessage = {
                 id: 30,
-                isMine: state.newMessageText.isMine,
-                message: state.newMessageText.message
+                isMine: stateCopy.newMessageText.isMine,
+                message: stateCopy.newMessageText.message
             };
-            state.MESSAGES.push(newMessage);
-            state.newMessageText.message = '';
-            return state;
 
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText.message = action.message;
-            state.newMessageText.isMine = action.isMine;
-            return state;
+            stateCopy.MESSAGES.push(newMessage);
+            stateCopy.newMessageText.message = '';
+            return stateCopy;
+        }
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.newMessageText = {...state.newMessageText};
+            stateCopy.newMessageText.message = action.message;
+            stateCopy.newMessageText.isMine = action.isMine;
+            return stateCopy;
 
+        }
         default:
             return state;
     }
@@ -81,7 +88,7 @@ const dialogsReducer = (state = initialState, action) => {
 export const sendMessageActionCreator = () =>
     ({type: SEND_MESSAGE});
 
-export const updateNewMessageTextActionCreator = (newMessage) =>{
+export const updateNewMessageTextActionCreator = (newMessage) => {
     return ({type: UPDATE_NEW_MESSAGE_TEXT, message: newMessage.TEXT, isMine: newMessage.STATUS});
 
 };

@@ -24,7 +24,7 @@ const Dialogs = (props) => {
         let isMine = false;
         let MESSAGE = {TEXT: text, STATUS: isMine};
 
-        props.onMessaageChange(MESSAGE);
+        props.onMessageChange(MESSAGE);
     };
     return (
         <div className={style.dialogs}>

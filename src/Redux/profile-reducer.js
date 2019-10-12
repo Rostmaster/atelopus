@@ -3,6 +3,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 
 let initialState = {
+
     POSTS: [
         {id: 0, likesCount: 10, text: 'It is my 5th post'},
         {id: 1, likesCount: 65, text: 'You are good'},
@@ -20,22 +21,30 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_POST:
+
+        case ADD_POST: {
+            let stateCopy = {...state};
+            stateCopy.POSTS = [...state.POSTS];
 
             let newPost = {
                 id: 22,
                 likesCount: 0,
-                text: state.currentPostText
+                text: stateCopy.currentPostText
             };
-            state.POSTS.push(newPost);
-            state.currentPostText = '';
-            return state;
 
-        case UPDATE_NEW_POST_TEXT:
 
-            state.currentPostText = action.newPostText;
-            return state;
+            stateCopy.POSTS.push(newPost);
+            stateCopy.currentPostText = '';
+            return stateCopy;
+        }
 
+        case UPDATE_NEW_POST_TEXT: {
+
+            let stateCopy = {...state};
+            stateCopy.currentPostText = action.newPostText;
+            return stateCopy;
+
+        }
         default  :
             return state;
     }
