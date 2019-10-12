@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         sendMessage: () => {
             let action = sendMessageActionCreator();
+            debugger;
             dispatch(action);
         },
         onMessageChange: (MESSAGE) => {

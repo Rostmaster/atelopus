@@ -60,13 +60,13 @@ const dialogsReducer = (state = initialState, action) => {
         case SEND_MESSAGE: {
             let stateCopy = {...state};
             stateCopy.MESSAGES = [...state.MESSAGES];
-            stateCopy.newMessageText = {...state.newMessageText};
 
             let newMessage = {
                 id: 30,
                 isMine: stateCopy.newMessageText.isMine,
                 message: stateCopy.newMessageText.message
             };
+
 
             stateCopy.MESSAGES.push(newMessage);
             stateCopy.newMessageText.message = '';
@@ -75,8 +75,8 @@ const dialogsReducer = (state = initialState, action) => {
         case UPDATE_NEW_MESSAGE_TEXT: {
             let stateCopy = {...state};
             stateCopy.newMessageText = {...state.newMessageText};
-            stateCopy.newMessageText.message = action.message;
-            stateCopy.newMessageText.isMine = action.isMine;
+            stateCopy.newMessageText.message = action.text;
+            stateCopy.newMessageText.isMine = action.status;
             return stateCopy;
 
         }
@@ -85,11 +85,12 @@ const dialogsReducer = (state = initialState, action) => {
     }
 };
 
-export const sendMessageActionCreator = () =>
-    ({type: SEND_MESSAGE});
+export const sendMessageActionCreator = () => {
+    return({type: SEND_MESSAGE});
+};
 
 export const updateNewMessageTextActionCreator = (newMessage) => {
-    return ({type: UPDATE_NEW_MESSAGE_TEXT, message: newMessage.TEXT, isMine: newMessage.STATUS});
+    return ({type: UPDATE_NEW_MESSAGE_TEXT, text: newMessage.TEXT, status: newMessage.STATUS});
 
 };
 export default dialogsReducer;
