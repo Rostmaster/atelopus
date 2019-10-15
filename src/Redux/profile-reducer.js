@@ -21,7 +21,7 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 
     let stateCopy = {...state};
-    stateCopy.POSTS = [...state.POSTS];
+
 
     switch (action.type) {
 
@@ -33,7 +33,7 @@ const profileReducer = (state = initialState, action) => {
                 text: stateCopy.currentPostText
             };
 
-            stateCopy.POSTS.push(newPost);
+            stateCopy.POSTS = [...state.POSTS,newPost];
             stateCopy.currentPostText = '';
             return stateCopy;
 

@@ -9,6 +9,7 @@ import News from './components/News/News';
 import FriendsPanelContainer from "./components/Sidebar/FriendsPanel/FriendsPanelContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
+import Users from "./components/Usres/Users";
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
             <div className='app-wrapper-content'>
 
                 <Route path='/dialogs'  render={() => <DialogsContainer/>}/>
+                <Route path='/users'    render={() => <Users/>}/>
                 <Route path='/profile'  render={() => <Profile/>}/>
                 <Route path='/music'    render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
