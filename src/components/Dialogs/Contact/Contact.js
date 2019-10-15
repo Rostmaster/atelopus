@@ -9,8 +9,8 @@ const Contact = (props) => {
   return (
     <div className={style.dialog}>
 
-        <img src={props.img} className={style.img} alt=''/>
-        <NavLink to={path}>{props.name}</NavLink>
+        <NavLink to={path}><img src={props.img} className={style.img} alt=''/></NavLink>
+        <NavLink to={path} className={style.name}>{props.name}</NavLink>
 
     </div>
   );

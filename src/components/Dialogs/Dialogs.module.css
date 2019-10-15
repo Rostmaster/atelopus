@@ -1,24 +1,29 @@
 .dialogs {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
 }
 
-.dialogItems{
-  padding: 10px;
-  color: white;
+.dialogItems {
+    background-color: transparent;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
 }
-.dialogItems .active{
-  color: gold;
+
+.dialogItems .active {
+    color: gold;
 }
 
 
 .messages {
-  padding: 10px;
-  color: #ffffff;
+    min-width: 300px;
+    padding: 10px;
+    color: black;
 }
-.textArea{
-  display: grid;
-  grid-template-columns:60fr 1fr;
-  grid-auto-flow: row;
+
+.textArea {
+    display: grid;
+    grid-template-columns: 1fr 60fr;
+    grid-auto-flow: row;
 }
 

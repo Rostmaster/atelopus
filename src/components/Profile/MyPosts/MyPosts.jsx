@@ -22,8 +22,7 @@ const MyPosts = (props) => {
 
 
     let postElements = props.profilePage.POSTS.map(post => {
-        return <Post message={post.text} likesCount={post.likesCount}/>
-    });
+        return <Post message={post.text} likesCount={post.likesCount} key={post.id}/>});
 
     return (<div className={style.postBlock}>
 

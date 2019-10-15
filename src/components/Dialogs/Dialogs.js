@@ -7,7 +7,7 @@ const Dialogs = (props) => {
 
 
     let contactElements = props.dialogPage.CONTACTS.map(data => {
-        return <Contact name={data.name} id={data.id} img={data.img} key={data.id}/>
+        return <Contact name={data.name} id={data.id} img={data.img} key={data.id} />
     });
 
     let messageElements = props.dialogPage.MESSAGES.map(data => {

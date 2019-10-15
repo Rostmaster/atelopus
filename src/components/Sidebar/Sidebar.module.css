@@ -1,13 +1,17 @@
 .nav {
-    grid-area: n;
-    background-color: darkgoldenrod;
+    grid-area: nav;
     padding: 20px;
+    max-width: 200px;
+    min-width: 20px;
+
 }
+
 
 .item a {
     color: black;
     text-decoration: none;
 }
+
 .item a:hover{
     color: white;
 }

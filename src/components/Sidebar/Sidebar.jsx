@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './Sidebar.module.css';
 import {NavLink} from 'react-router-dom';
-import FriendsPanel from "./FriendsPanel/FriendsPanel";
 
 const Sidebar = (props) => {
 
@@ -33,13 +32,8 @@ const Sidebar = (props) => {
 
             </div>
 
-            <div className={style.item}>
-                {props.sideBar.tabs.friends}
-            </div>
 
-            <div>
-                <FriendsPanel sideBar={props.sideBar}/>
-            </div>
+
 
         </nav>);
 };

@@ -1,12 +1,20 @@
-.dialog{
+.dialog {
     color: white;
+    display: inline;
 }
 
-.dialog .active{
+@media screen and (max-width: 850px) {
+    .name {
+        display: none;
+    }
+}
+
+.dialog .active {
     color: gold;
 }
-.dialog .img{
-    max-width:50px;
+
+.dialog .img {
+    max-width: 50px;
     overflow: hidden;
     border-radius: 40px;
     padding-right: 10px;

@@ -1,11 +1,22 @@
 
 .header{
-    grid-area: h;
-    background-color: rgb(60, 156, 156);
+    grid-area: header;
+    background-color: #332925;
     border-style:none none solid none;
+    display: flex;
 
   }
   
   .header img{
-    width: 40px;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      margin-right: 60px;
+  }
+
+  .h1{
+      padding: 60px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 20px;
+
   }
