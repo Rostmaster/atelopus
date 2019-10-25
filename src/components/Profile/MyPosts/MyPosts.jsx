@@ -30,7 +30,7 @@ const MyPosts = (props) => {
         <div className={style.title}> My posts</div>
 
         <div>
-            <textarea onChange={inputChange}  value={props.profilePage.currentPostText}/>
+            <textarea onChange={inputChange}  value={props.profilePage.currentPostText} placeholder={props.profilePage.placeholder}/>
 
         </div>
 

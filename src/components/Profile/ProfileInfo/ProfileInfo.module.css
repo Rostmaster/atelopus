@@ -1,6 +1,38 @@
-.descroptionBlock{
-  padding: 10px;
+.descriptionBlock {
+    padding: 10px;
+    display: grid;
+    grid-template-areas:
+            'img    name       .        '
+            'img    stat       .        '
+            'img    jobDesc    .        '
+            'img    job        choice   ';
+    grid-template-columns: 130px 30% 40px;
+    grid-template-rows: 25% 25% 1fr 25%;
+
 }
-.wallpaper{
-  width: auto;
+.photo{
+    grid-area: img;
+    width: 120px;
+}
+.name{
+    grid-area: name;
+}
+.status{
+    grid-area: stat;
+}
+.jobDescription {
+    grid-area: jobDesc;
+}
+
+.job{
+    grid-area: job;
+}
+.jobImg {
+    grid-area: choice;
+    width: 40px;
+}
+
+
+.wallpaper {
+    width: auto;
 }
