@@ -7,7 +7,7 @@ const ProfileInfo = (props) => {
   return (
     <div>
 
-      <div>
+      <div  className={style.wallpaper}>
         <img src='https://www.setaswall.com/wp-content/uploads/2017/05/Dual-Monitor-Wallpaper-2-768x247.jpg' alt=' ' />
       </div>
 

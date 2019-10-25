@@ -4,6 +4,7 @@
     background-color: #332925;
     border-style:none none solid none;
     display: flex;
+    min-width: 10%;
 
   }
   

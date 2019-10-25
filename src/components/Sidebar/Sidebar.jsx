@@ -17,6 +17,10 @@ const Sidebar = (props) => {
             </div>
 
             <div className={style.item}>
+                <NavLink to="/users" activeClassName={style.activeLink}>{props.sideBar.tabs.users}</NavLink>
+            </div>
+
+            <div className={style.item}>
                 <NavLink to="/news" activeClassName={style.activeLink}>{props.sideBar.tabs.news}</NavLink>
             </div>
 
@@ -31,8 +35,6 @@ const Sidebar = (props) => {
             <div className={style.space}>
 
             </div>
-
-
 
 
         </nav>);

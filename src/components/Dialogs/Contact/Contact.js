@@ -6,6 +6,7 @@ const Contact = (props) => {
 
   let path = "/dialogs/" + props.id;
 
+
   return (
     <div className={style.dialog}>
 

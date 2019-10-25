@@ -5,9 +5,8 @@ import {NavLink} from 'react-router-dom';
 
 
 const FriendsPanel = (props) => {
-    debugger;
     let FriendElements = props.friendsPanel.CONTACTS.map(friend => {
-        return <Friend name={friend.name} img={friend.img} key={props.id}/>
+        return <Friend name={friend.name} img={friend.img} key={friend.id}/>
 
     });
 

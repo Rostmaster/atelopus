@@ -1,4 +1,33 @@
-.photo{
-    width: 60px;
+.userWrapper {
+    display: block;
 
+}
+
+.userBox {
+    padding: 5px;
+    display: flex;
+    /*border: solid black;*/
+    grid-template-areas: ' photo     info ';
+    grid-template-columns: 20% 80%;
+
+}
+
+.userPhoto {
+    padding: auto;
+    grid-area: photo;
+    /*border: solid red;*/
+
+}
+
+.photo img {
+    width: 50px;
+
+}
+
+.userInfo {
+    grid-area: info;
+    /*border: solid green;*/
+}
+.selectedPage{
+    font-weight: bold;
 }

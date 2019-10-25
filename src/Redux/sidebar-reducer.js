@@ -36,13 +36,13 @@ let initialState = {
         news: 'News',
         music: 'Music',
         settings: 'Settings',
-        friends: 'Friends'
+        friends: 'Friends',
+        users: 'Users'
     }
 
 };
 const sidebarReducer = (state = initialState, action) => {
     // eslint-disable-next-line no-unused-vars
-    let d=action;
     return state
 };
 export default sidebarReducer
