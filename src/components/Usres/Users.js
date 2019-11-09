@@ -2,6 +2,7 @@ import React from 'react'
 import style from "./Users.module.css";
 import userPhoto from "../../assets/images/user1.png"
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 
 let Users = (props) => {
@@ -15,7 +16,8 @@ let Users = (props) => {
 
             <div>
                 {pages.map(p => {
-                    return <span className={props.currentPage === p && style.selectedPage} key={p.id}
+                    return <span className={props.currentPage === p && style.selectedPage}
+
                                  onClick={() => {
                                      props.onPageChanged(p);
                                  }}
@@ -29,20 +31,50 @@ let Users = (props) => {
 
                     <span className={style.userPhoto}>
                         <div className={style.photo}>
-                            <NavLink to={'/profile/'+ u.id} >
+                            <NavLink to={'/profile/' + u.id}>
                                 <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="icon"/>
                             </NavLink>
                         </div>
 
                         <div>
-                            {u.followed
-                                ? <button onClick={() => {
-                                    props.unfollow(u.id)
-                                }}>Unfollow</button>
-                                : <button onClick={() => {
-                                    props.follow(u.id)
-                                }}>Follow</button>
-                            }
+                            {
+                                u.followed
+                                    ? <button onClick={() => {
+
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "95805825-0821-463d-b2e1-e0a5525c08b4"
+                                                }
+                                            }
+                                        )
+                                            .then(response => {
+                                                if (response.data.resultCode == 0) {
+                                                    props.unfollow(u.id);
+                                                }
+                                            });
+
+                                    }}>Unfollow</button>
+
+                                    : <button onClick={() => {
+
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "95805825-0821-463d-b2e1-e0a5525c08b4"
+                                                }
+                                            }
+                                        )
+                                            .then(response => {
+                                                if (response.data.resultCode == 0) {
+                                                    props.follow(u.id);
+                                                }
+                                            });
+
+                                    }}>Follow</button>
+                            };
 
                         </div>
 

@@ -1,23 +1,33 @@
 
-.header{
+.header {
     grid-area: header;
     background-color: #332925;
-    border-style:none none solid none;
+    border-style: none none solid none;
     display: flex;
     min-width: 10%;
 
-  }
-  
-  .header img{
-      width: 60px;
-      height: 60px;
-      border-radius: 30px;
-      margin-right: 60px;
-  }
 
-  .h1{
-      padding: 60px;
-      font-family: 'Poppins', sans-serif;
-      letter-spacing: 20px;
+}
+.sss{
+    color: white;
+}
+.header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-right: 60px;
+}
 
-  }
+.h1 {
+    padding: 60px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 20px;
+
+}
+
+.loginBlock {
+}
+
+.loginBlock a {
+    color: white;
+}

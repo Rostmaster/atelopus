@@ -27,7 +27,6 @@ const profileReducer = (state = initialState, action) => {
 
     let stateCopy = {...state};
 
-
     switch (action.type) {
 
         case ADD_POST:
@@ -52,6 +51,7 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 userProfile: action.userProfile
             };
+
         default  :
             return state;
     }
@@ -67,4 +67,4 @@ export const setUserProfile = (userProfile) =>
     ({type: SET_USER_PROFILE, userProfile: userProfile});
 
 
-export default profileReducer
+export default profileReducer;

@@ -16,25 +16,30 @@ class UsersContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage + 121}&count=${this.props.pageSize}`)// DELETE 121
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+            {
+                withCredentials: true
+            }
+        )
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount <= this.props.pageSize * 20 ? response.data.totalCount : this.props.pageSize * 20);
                 this.props.toggleIsFetching(false);
             });
-    }// DELETE 121 !!!!!!!
+    }
 
     onPageChanged = (page) => {
         this.props.toggleIsFetching(true);
 
         this.props.setCurrentPage(page);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page + 121}&count=${this.props.pageSize}`) // DELETE 121
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page }&count=${this.props.pageSize}`,
+            {withCredentials: true}
+        )
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.toggleIsFetching(false);
             });
-    };// DELETE 121 !!!!!!!
-
+    };
     render() {
         return (
             <>
@@ -68,5 +73,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching}
-    )(UsersContainer);
+)(UsersContainer);
 
